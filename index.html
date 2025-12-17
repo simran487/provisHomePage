@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Provis Technologies</title>
+    <link href="output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <style>
+      /* Navbar black border animation */
+      header {
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Updated opaque overlay covering navbar fully */
+      header::before {
+        content: "";
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75); /* darker + opaque */
+        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+        transition: top 0.7s ease;
+        z-index: 5;
+      }
+
+      header:hover::before {
+        top: 0;
+      }
+
+      /* Keep content above overlay */
+      header > div,
+      header nav,
+      header button {
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Dropdown styles */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 0.5rem;
+        min-width: 10rem;
+        z-index: 50;
+      }
+
+      .dropdown-content a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: white;
+        text-align: left;
+        font-size: 0.95rem;
+      }
+
+      .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #06b6d4;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Carousel Animation */
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-scroll {
+        display: inline-block;
+        animation: scroll 25s linear infinite;
+      }
+
+      /* Fix: Prevent button/carousel overlap */
+      .hero-buttons {
+        margin-bottom: 4rem;
+      }
+
+      /* Space above carousel */
+      .brand-carousel {
+        bottom: 2rem;
+      }
+    </style>
+
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      }
+    </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .tab-btn.active {
+      background-color: black;
+      color: white;
+    }
+    .slide {
+      transition: transform 0.6s ease-in-out;
+    }
+  </style>
+
+
+
+
+  </head>
+
+  <body class="m-0 p-0 bg-white">
+    <!-- Hero Section -->
+    <section
+      class="relative w-full h-screen bg-cover bg-center text-white-600"
+      style="background-image: url('template/hero.png');"
+    >
+      <!-- Green Glow Effect -->
+      <div
+        class="absolute inset-0 flex justify-center items-center"
+        aria-hidden="true"
+      >
+        <div
+          class="w-[650px] h-[650px] bg-emerald-500 rounded-full opacity-25 blur-[160px]"
+        ></div>
+        <div
+          class="absolute w-[300px] h-[300px] bg-white rounded-full opacity-10 blur-[100px]"
+        ></div>
+      </div>
+
+      <!-- Navbar -->
+      <header class="absolute top-0 left-0 w-full z-30 text-white">
+        <div
+          class="flex items-center justify-between px-10 py-6 max-w-7xl mx-auto"
+        >
+          <!-- Logo -->
+          <div class="flex items-center space-x-3">
+            <img src="template/logo.png" alt="Logo" class="h-10 w-auto" />
+          </div>
+
+          <!-- Navbar Links -->
+          <nav class="hidden md:flex space-x-10 text-lg font-medium">
+            <a href="#" class="hover:text-cyan-300 transition">Home</a>
+
+            <div class="dropdown">
+              <a href="#" class="hover:text-cyan-300 transition"
+                >Company <i class="fa-solid fa-chevron-down text-xs"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Partners</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <a href="#" class="hover:text-cyan-300 transition"
+                >Services <i class="fa-solid fa-chevron-down text-xs"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="#">Web Development</a>
+                <a href="#">App Development</a>
+                <a href="#">UI/UX Design</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <a href="#" class="hover:text-cyan-300 transition"
+                >Technologies <i class="fa-solid fa-chevron-down text-xs"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="#">AI & ML</a>
+                <a href="#">Blockchain</a>
+                <a href="#">Cloud Solutions</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+              <a href="#" class="hover:text-cyan-300 transition"
+                >Insights <i class="fa-solid fa-chevron-down text-xs"></i
+              ></a>
+              <div class="dropdown-content">
+                <a href="#">Blogs</a>
+                <a href="#">Case Studies</a>
+                <a href="#">News</a>
+              </div>
+            </div>
+
+            <a href="#" class="hover:text-cyan-300 transition">Contact</a>
+          </nav>
+
+          <!-- Right Button -->
+          <div class="hidden md:block">
+            <button
+              class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-full font-semibold transition"
+            >
+              → Book A Meeting
+            </button>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            class="md:hidden focus:outline-none"
+            onclick="toggleMenu()"
+            aria-label="Toggle Menu"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90">
+          <ul class="flex flex-col items-center space-y-4 py-4 text-lg">
+            <li><a href="#" class="hover:text-cyan-300">Home</a></li>
+            <li><a href="#" class="hover:text-cyan-300">Company</a></li>
+            <li><a href="#" class="hover:text-cyan-300">Services</a></li>
+            <li><a href="#" class="hover:text-cyan-300">Technologies</a></li>
+            <li><a href="#" class="hover:text-cyan-300">Insights</a></li>
+            <li><a href="#" class="hover:text-cyan-300">Contact</a></li>
+            <button
+              class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-full"
+            >
+              → Book A Meeting
+            </button>
+          </ul>
+        </div>
+      </header>
+
+      <!-- Hero Content -->
+      <div
+        class="relative z-10 flex flex-col justify-center items-center text-center h-full px-12 md:px-24 text-white"
+      >
+        <!-- Review Cylinder Section -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-8 py-3 mb-8 space-y-3 md:space-y-0 md:space-x-6"
+        >
+          <!-- Overlapping Logos -->
+          <div class="flex -space-x-3">
+            <img
+              src="template/Co.png"
+              alt="Co"
+              class="h-10 w-10 rounded-full border-2 border-white object-cover"
+            />
+            <img
+              src="template/google.jpg"
+              alt="Google"
+              class="h-10 w-10 rounded-full border-2 border-white object-cover"
+            />
+            <img
+              src="template/glassdoor.png"
+              alt="Glassdoor"
+              class="h-10 w-10 rounded-full border-2 border-white object-cover"
+            />
+            <img
+              src="template/Up.png"
+              alt="Up"
+              class="h-10 w-10 rounded-full border-2 border-white object-cover"
+            />
+          </div>
+
+          <!-- Stars + Text -->
+          <div class="flex items-center space-x-2">
+            <div class="flex text-yellow-400 text-base">
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <p class="text-sm font-medium text-gray-100">180+ Reviews</p>
+          </div>
+        </div>
+
+        <!-- Hero Text -->
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+          Fuel Your Next <br /> Stage Of Growth
+        </h1>
+        <p class="text-lg md:text-xl max-w-2xl mb-8 text-gray-200">
+          Power your business with products that combine strategic insight, AI
+          precision, and long-term scalability — faster, leaner, and ready for
+          tomorrow.
+        </p>
+
+        <div class="hero-buttons flex flex-wrap justify-center gap-4">
+          <button
+            class="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition"
+          >
+            → Book A Meeting
+          </button>
+          <button
+            class="border border-white hover:border-emerald-500 hover:text-emerald-400 px-8 py-3 rounded-full text-lg font-semibold transition"
+          >
+            View Our Work
+          </button>
+        </div>
+      </div>
+
+      <!-- Logo Carousel -->
+      <div class="brand-carousel absolute bottom-10 w-full overflow-hidden">
+        <div class="whitespace-nowrap animate-scroll">
+          <img src="template/TitanRp.png" alt="brand1" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/MP.png" alt="brand2" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/true-wholesale-logo.png" alt="brand3" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/TV.png" alt="brand4" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/tsp-new-logo.png" alt="brand5" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/IRX.png" alt="brand6" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/Shugulika.png" alt="brand7" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/OneTwenty.png" alt="brand8" class="inline-block h-8 mx-3 rounded-full" />
+          <!-- duplicate loop -->
+          <img src="template/TitanRp.png" alt="brand1" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/MP.png" alt="brand2" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/true-wholesale-logo.png" alt="brand3" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/TV.png" alt="brand4" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/tsp-new-logo.png" alt="brand5" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/IRX.png" alt="brand6" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/Shugulika.png" alt="brand7" class="inline-block h-8 mx-3 rounded-full" />
+          <img src="template/OneTwenty.png" alt="brand8" class="inline-block h-8 mx-3 rounded-full" />
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <!-- Header Section -->
+  
+    <!-- Tailwind Mobile Responsiveness Explanation: -->
+    <!-- 
+      - `sm:grid-cols-2` ensures two columns layout starting from small screens.
+      - For mobile, we set the grid to `grid-cols-1` to make it single column.
+      - The `w-full max-w-md` allows the tabs and images to resize according to the screen size.
+    -->
+
+
+    <!-- Section Title -->
+<section class="text-center py-10 px-4">
+  <h2 class="text-3xl font-bold">Powered by Intelligence</h2>
+  <h3 class="text-2xl text-green-500 font-semibold mt-2">AI-enhanced eCommerce</h3>
+  <p class="text-gray-500 mt-3 max-w-xl mx-auto">
+    Powered by AI. Perfected by Provis. Leveraging AI with intention, we build products and experiences that evolve intelligently.
+  </p>
+</section>
+
+<!-- Tabs -->
+<div class="flex flex-wrap justify-center gap-3 mb-10 px-4">
+  <button class="tab-btn active px-5 py-2 rounded-full border text-sm sm:text-base">AI Development</button>
+  <button class="tab-btn px-5 py-2 rounded-full border text-sm sm:text-base">SAAS</button>
+  <button class="tab-btn px-5 py-2 rounded-full border text-sm sm:text-base">Ecommerce</button>
+</div>
+
+<!-- Slider Container -->
+<div class="relative overflow-hidden max-w-6xl mx-auto">
+  <div class="flex slide w-[300%] transition-transform duration-500">
+
+    <!-- AI Development -->
+    <div class="w-full md:w-1/3 flex flex-col md:flex-row justify-between items-center gap-6 px-6 py-6 md:px-10 md:py-8 border border-green-400 rounded-2xl">
+      <div class="max-w-sm text-center md:text-left">
+        <h4 class="text-gray-500 mb-2">AI Development</h4>
+        <h2 class="text-xl md:text-2xl font-semibold mb-4">Predict, automate, and simplify progress.</h2>
+        <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
+          <span class="border border-green-400 px-3 py-1 rounded-full text-sm">AI-powered automation</span>
+          <span class="border border-green-400 px-3 py-1 rounded-full text-sm">RAG Based AI Systems</span>
+          <span class="border border-green-400 px-3 py-1 rounded-full text-sm">AI for customer service</span>
+          <span class="border border-green-400 px-3 py-1 rounded-full text-sm">AI chatbot development</span>
+          <span class="border border-green-400 px-3 py-1 rounded-full text-sm">Self/cloud-hosted on-prem LLMs</span>
+        </div>
+        <a href="#" class="text-green-500 font-semibold flex items-center justify-center md:justify-start">Learn More <span class="ml-2">➜</span></a>
+      </div>
+      <img src="template/AI.png" alt="AI Development" class="w-64 md:w-[350px] rounded-xl">
+    </div>
+
+    <!-- SAAS -->
+    <div class="w-full md:w-1/3 flex flex-col md:flex-row justify-between items-center gap-6 px-6 py-6 md:px-10 md:py-8 border border-blue-400 rounded-2xl">
+      <div class="max-w-sm text-center md:text-left">
+        <h4 class="text-gray-500 mb-2">SaaS</h4>
+        <h2 class="text-xl md:text-2xl font-semibold mb-4">Future-ready products designed for growth.</h2>
+        <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
+          <span class="border border-blue-400 px-3 py-1 rounded-full text-sm">Rapid MVP Development</span>
+          <span class="border border-blue-400 px-3 py-1 rounded-full text-sm">Cloud Migration</span>
+          <span class="border border-blue-400 px-3 py-1 rounded-full text-sm">SaaS development</span>
+          <span class="border border-blue-400 px-3 py-1 rounded-full text-sm">CTO as a Service</span>
+          <span class="border border-blue-400 px-3 py-1 rounded-full text-sm">AI & Automation in SaaS</span>
+        </div>
+        <a href="#" class="text-green-500 font-semibold flex items-center justify-center md:justify-start">Learn More <span class="ml-2">➜</span></a>
+      </div>
+      <img src="template/SaaS.png" alt="SaaS Development" class="w-64 md:w-[350px] rounded-xl">
+    </div>
+
+    <!-- Ecommerce -->
+    <div class="w-full md:w-1/3 flex flex-col md:flex-row justify-between items-center gap-6 px-6 py-6 md:px-10 md:py-8 border border-purple-400 rounded-2xl">
+      <div class="max-w-sm text-center md:text-left">
+        <h4 class="text-gray-500 mb-2">eCommerce</h4>
+        <h2 class="text-xl md:text-2xl font-semibold mb-4">AI-crafted shopping experiences that convert.</h2>
+        <div class="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
+          <span class="border border-purple-400 px-3 py-1 rounded-full text-sm">eCommerce Stores</span>
+          <span class="border border-purple-400 px-3 py-1 rounded-full text-sm">Speed Optimization</span>
+          <span class="border border-purple-400 px-3 py-1 rounded-full text-sm">Workflow Automation</span>
+          <span class="border border-purple-400 px-3 py-1 rounded-full text-sm">24/7 Monitoring & Support</span>
+          <span class="border border-purple-400 px-3 py-1 rounded-full text-sm">Multi-Vendor Development</span>
+        </div>
+        <a href="#" class="text-green-500 font-semibold flex items-center justify-center md:justify-start">Learn More <span class="ml-2">➜</span></a>
+      </div>
+      <img src="template/Ecoomerce.png" alt="eCommerce" class="w-64 md:w-[350px] rounded-xl">
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const slide = document.querySelector('.slide');
+
+  buttons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.tab-btn.active').classList.remove('active');
+      btn.classList.add('active');
+      slide.style.transform = `translateX(-${index * 33.3333}%)`;
+    });
+  });
+</script>
+
+
+<section class="bg-black text-white py-16 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto text-center md:text-left">
+    <!-- Heading -->
+    <h2 class="text-3xl md:text-5xl font-bold mb-6">
+      From Idea to Impact in<br>4 Simple Steps
+    </h2>
+
+    <!-- Buttons -->
+    <div class="flex justify-end gap-4 mb-10">
+      <button class="bg-green-500 text-white px-5 py-2 rounded-full hover:bg-green-600 transition">
+        → Book A Meeting
+      </button>
+      <button class="border border-white px-5 py-2 rounded-full hover:bg-white hover:text-black transition">
+        View Our Work
+      </button>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12" id="steps">
+      <div class="step cursor-pointer" data-index="0">
+        <h3 class="font-semibold text-lg mb-2">Discover & Define</h3>
+        <p class="text-gray-400 text-sm mb-4">
+          Your goals, pain points, and opportunities to map the right solution.
+        </p>
+        <div class="progress-bar bg-gray-700 h-1 rounded-full overflow-hidden hidden">
+          <div class="progress-fill bg-green-500 h-1 w-0"></div>
+        </div>
+      </div>
+
+      <div class="step cursor-pointer" data-index="1">
+        <h3 class="font-semibold text-lg mb-2">Design & Build</h3>
+        <p class="text-gray-400 text-sm mb-4">
+          Scalable, high-performance SaaS and eCommerce products ready for real-world use.
+        </p>
+        <div class="progress-bar bg-gray-700 h-1 rounded-full overflow-hidden hidden">
+          <div class="progress-fill bg-green-500 h-1 w-0"></div>
+        </div>
+      </div>
+
+      <div class="step cursor-pointer" data-index="2">
+        <h3 class="font-semibold text-lg mb-2">Test & Optimize</h3>
+        <p class="text-gray-400 text-sm mb-4">
+          Performance, usability, and reliability to ensure every product delivers results.
+        </p>
+        <div class="progress-bar bg-gray-700 h-1 rounded-full overflow-hidden hidden">
+          <div class="progress-fill bg-green-500 h-1 w-0"></div>
+        </div>
+      </div>
+
+      <div class="step cursor-pointer" data-index="3">
+        <h3 class="font-semibold text-lg mb-2">Support & Evolve</h3>
+        <p class="text-gray-400 text-sm mb-4">
+          Continuously refine and enhance platforms to drive long-term growth and impact.
+        </p>
+        <div class="progress-bar bg-gray-700 h-1 rounded-full overflow-hidden hidden">
+          <div class="progress-fill bg-green-500 h-1 w-0"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Section (Fully Visible Images) -->
+    <div class="relative max-w-5xl mx-auto h-[300px] md:h-[450px] flex items-center justify-center bg-green-600 rounded-2xl">
+      <img src="template/Discover&Define.png" alt="Discover & Define"
+        class="fade-image absolute inset-0 w-full h-full object-contain rounded-2xl opacity-100 transition-opacity duration-700" />
+      <img src="template/Design&Build.png" alt="Design & Build"
+        class="fade-image absolute inset-0 w-full h-full object-contain rounded-2xl opacity-0 transition-opacity duration-700" />
+      <img src="template/Test&Optimize.png" alt="Test & Optimize"
+        class="fade-image absolute inset-0 w-full h-full object-contain rounded-2xl opacity-0 transition-opacity duration-700" />
+      <img src="template/Support&Evolve.png" alt="Support & Evolve"
+        class="fade-image absolute inset-0 w-full h-full object-contain rounded-2xl opacity-0 transition-opacity duration-700" />
+    </div>
+  </div>
+</section>
+
+<script>
+  const steps = document.querySelectorAll(".step");
+  const bars = document.querySelectorAll(".progress-bar");
+  const fills = document.querySelectorAll(".progress-fill");
+  const images = document.querySelectorAll(".fade-image");
+
+  let current = 0;
+  let interval;
+  let paused = false;
+
+  function activateStep(index) {
+    // Reset all
+    bars.forEach(bar => bar.classList.add("hidden"));
+    fills.forEach(f => f.style.width = "0%");
+    images.forEach(img => img.style.opacity = "0");
+
+    // Show only current
+    bars[index].classList.remove("hidden");
+    images[index].style.opacity = "1";
+    animateProgress(index);
+  }
+
+  function animateProgress(index) {
+    let width = 0;
+    const fill = fills[index];
+    clearInterval(interval);
+    interval = setInterval(() => {
+      if (!paused) {
+        width += 1;
+        fill.style.width = width + "%";
+        if (width >= 100) {
+          clearInterval(interval);
+          current = (index + 1) % steps.length;
+          activateStep(current);
+        }
+      }
+    }, 60); // controls progress speed
+  }
+
+  steps.forEach((step, i) => {
+    step.addEventListener("click", () => {
+      paused = true;
+      activateStep(i);
+    });
+  });
+
+  activateStep(current);
+</script>
+
+<section class="py-20 bg-white relative">
+  <div class="text-center mb-14">
+    <h2 class="text-4xl font-extrabold text-gray-900">
+      The Ultimate Product Backbone,
+    </h2>
+    <h3 class="text-4xl font-extrabold bg-linear-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+      Unified & Unstoppable
+    </h3>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto grid grid-cols-3 gap-x-14 gap-y-16">
+
+    <!-- Customer Experience -->
+    <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200 relative z-10">
+      <div class="font-semibold text-gray-800 mb-4 flex gap-2 items-center">
+        <img src="template/logo1.png" class="w-6 h-6"> Customer Experience
+      </div>
+      <div class="flex flex-wrap gap-4">
+       <img src="template/music.png" class="h-6">
+        <img src="template/twilio_symbol.svg.png" class="h-6">
+        <img src="template/flutter_symbol.svg.png" class="h-6">
+        <img src="template/react.png" class="h-6">
+        <img src="template/f17e01fd97a13cee96e180ff16060055fd4dcb77.jpg" class="h-6">
+      </div>
+    </div>
+
+    <!-- Payments -->
+    <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200 relative z-10">
+      <div class="font-semibold text-gray-800 mb-4 flex gap-2 items-center">
+        <img src="template/logo2.png" class="w-6 h-6"> Payments
+      </div>
+      <div class="flex gap-4">
+        <img src="template/P1.jpg" class="h-6">
+        <img src="template/P2.jpg" class="h-6">
+        <img src="template/P3.jpg" class="h-6">
+      </div>
+    </div>
+
+    <!-- CRM -->
+    <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200 relative z-10">
+      <div class="font-semibold text-gray-800 mb-4 flex gap-2 items-center">
+        <img src="template/logo3.png" class="w-6 h-6"> CRM & Automation
+      </div>
+      <div class="flex gap-4">
+        <img src="template/C1.jpg" class="h-6">
+        <img src="template/C2.png" class="h-6">
+        <img src="template/C3.png" class="h-6">
+      </div>
+    </div>
+
+    <!-- Product Development -->
+    <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200 relative z-10">
+      <div class="font-semibold text-gray-800 mb-4 flex gap-2 items-center">
+        <img src="template/logo4.png" class="w-6 h-6"> Product Development
+      </div>
+      <div class="flex gap-4">
+        <img src="template/PD1.png" class="h-6">
+        <img src="template/PD2.png" class="h-6">
+        <img src="template/PD3.png" class="h-6">
+        <img src="template/PD4.png" class="h-6">
+        <img src="template/PD5.png" class="h-6">
+      </div>
+    </div>
+
+    <!-- Center Main Logo -->
+    <div class="flex items-center justify-center relative z-20">
+      <div class="w-32 h-32 rounded-xl bg-[#0FB172] flex items-center justify-center shadow-xl">
+        <img src="template/P.png" class="h-16" alt="">
+      </div>
+    </div>
+
+    <!-- AI -->
+    <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200 relative z-10">
+      <div class="font-semibold text-gray-800 mb-4 flex gap-2 items-center">
+        <img src="template/logo5.png" class="w-6 h-6"> AI Intelligence
+      </div>
+      <div class="flex gap-4">
+        <img src="template/A1.jpg" class="h-6">
+        <img src="template/A2.png" class="h-6">
+        <img src="template/A3.jpg" class="h-6">
+        <img src="template/A4.png" class="h-6">
+      </div>
+    </div>
+
+    <!-- Data Systems -->
+    <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200 relative z-10">
+      <div class="font-semibold text-gray-800 mb-4 flex gap-2 items-center">
+        <img src="template/logo6.png" class="w-6 h-6"> Data Systems
+      </div>
+      <div class="flex gap-4">
+        <img src="template/D1.png" class="h-6">
+        <img src="template/D2.png" class="h-6">
+        <img src="template/D3.png" class="h-6">
+        <img src="template/D4.png" class="h-6">
+      </div>
+    </div>
+
+    <!-- Cloud Infrastructure -->
+    <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200 relative z-10">
+      <div class="font-semibold text-gray-800 mb-4 flex gap-2 items-center">
+        <img src="template/logo7.png" class="w-6 h-6"> Cloud Infrastructure
+      </div>
+      <div class="flex gap-4">
+        <img src="template/CI1.png" class="h-6">
+        <img src="template/CI2.png" class="h-6">
+        <img src="template/CI3.png" class="h-6">
+        <img src="template/CI4.png" class="h-6">
+        <img src="template/CI5.png" class="h-6">
+      </div>
+    </div>
+
+    <!-- Store Platforms -->
+    <div class="bg-white shadow-md rounded-xl p-6 border border-gray-200 relative z-10">
+      <div class="font-semibold text-gray-800 mb-4 flex gap-2 items-center">
+        <img src="template/logo8.png" class="w-6 h-6"> Store Platforms
+      </div>
+      <div class="flex gap-4">
+        <img src="template/S1.png" class="h-6">
+        <img src="template/S2.png" class="h-6">
+        <img src="template/S3.png" class="h-6">
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Individual dotted connector lines -->
+  <div class="absolute inset-0 pointer-events-none z-0">
+
+    <!-- Center -> Payments -->
+    <div class="absolute top-[38%] left-[52%] w-[17%] border-t-2 border-dotted border-gray-400"></div>
+
+    <!-- Center -> Product Dev -->
+    <div class="absolute top-[52%] left-[35%] w-[17%] border-t-2 border-dotted border-gray-400"></div>
+
+    <!-- Center -> AI -->
+    <div class="absolute top-[52%] left-[52%] w-[17%] border-t-2 border-dotted border-gray-400"></div>
+
+    <!-- Center -> Cloud -->
+    <div class="absolute top-[66%] left-[52%] w-[17%] border-t-2 border-dotted border-gray-400"></div>
+
+    <!-- Center -> Customer Experience -->
+    <div class="absolute top-[38%] left-[39%] h-[10%] border-l-2 border-dotted border-gray-400"></div>
+
+    <!-- Customer Exp -> CRM -->
+    <div class="absolute top-[38%] left-[23%] w-[19%] border-t-2 border-dotted border-gray-400"></div>
+
+    <!-- Data Systems -> Store Platforms -->
+    <div class="absolute top-[82%] left-[23%] w-[54%] border-t-2 border-dotted border-gray-400"></div>
+  </div>
+
+</section>
+
+
+<section class="relative bg-[#030c07] text-white py-20 px-6 md:px-12 overflow-hidden">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 bg-[url('your-bg-pattern.png')] bg-cover bg-center opacity-30"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+    <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+      Enterprise-Ready Products That<br class="hidden md:block"> 
+      Solve, Scale & Drive Growth.
+    </h1>
+
+    <p class="mt-4 text-gray-300 max-w-2xl mx-auto text-sm md:text-base">
+      Our products are designed to accelerate growth, streamline operations, and unlock measurable results.
+    </p>
+
+    <!-- Buttons -->
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <button class="bg-green-500 hover:bg-green-600 transition text-white font-semibold px-6 py-3 rounded-full flex items-center justify-center">
+        → Book A Meeting
+      </button>
+      <button class="border border-gray-400 hover:border-white transition text-white font-semibold px-6 py-3 rounded-full">
+        View Our Work
+      </button>
+    </div>
+
+    <!-- Ratings -->
+    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 justify-center items-center">
+      <!-- 1 -->
+      <div class="flex flex-col items-center">
+        <img src="template/Up.png" alt="Upwork" class="h-10 mb-2">
+        <div class="text-yellow-400 text-lg">★★★★★</div>
+        <p class="mt-1 text-white font-medium text-sm">4.9/5 <span class="text-gray-400">100+ Reviews</span></p>
+      </div>
+
+      <!-- 2 -->
+      <div class="flex flex-col items-center">
+        <img src="template/Co.png" alt="Clutch" class="h-10 mb-2">
+        <div class="text-yellow-400 text-lg">★★★★★</div>
+        <p class="mt-1 text-white font-medium text-sm">4.9/5 <span class="text-gray-400">12+ Reviews</span></p>
+      </div>
+
+      <!-- 3 -->
+      <div class="flex flex-col items-center">
+        <img src="template/google.jpg" alt="Google" class="h-10 mb-2">
+        <div class="text-yellow-400 text-lg">★★★★★</div>
+        <p class="mt-1 text-white font-medium text-sm">4.9/5 <span class="text-gray-400">46+ Reviews</span></p>
+      </div>
+
+      <!-- 4 -->
+      <div class="flex flex-col items-center">
+        <img src="template/glassdoor.png" alt="G2" class="h-10 mb-2">
+        <div class="text-yellow-400 text-lg">★★★★★</div>
+        <p class="mt-1 text-white font-medium text-sm">4.9/5 <span class="text-gray-400">15+ Reviews</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
+    <!-- Top Section -->
+    <div class="flex flex-col md:flex-row items-center gap-10">
+      <!-- Left Image -->
+      <div class="w-full md:w-1/2">
+        <img src="template/sittingppl.jpg" alt="People discussion" class="rounded-xl shadow-lg w-full h-auto object-cover">
+      </div>
+
+      <!-- Right Content -->
+      <div class="w-full md:w-1/2">
+        <h2 class="text-3xl font-semibold text-gray-900 leading-tight">
+          Everything 
+          <div class="relative inline-block text-left">
+  <!-- Dropdown Button -->
+  <button id="dropdownButton" 
+    class="bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-4 py-1.5 rounded-full flex items-center gap-1 transition">
+    Startups
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div id="dropdownMenu" 
+       class="absolute mt-2 w-40 bg-white text-gray-700 rounded-xl shadow-lg hidden transition-all duration-200">
+    <ul class="py-2 text-sm font-medium">
+      <li><a href="#" class="block px-4 py-2 hover:bg-green-100">Startups</a></li>
+      <li><a href="#" class="block px-4 py-2 hover:bg-green-100">SaaS</a></li>
+      <li><a href="#" class="block px-4 py-2 hover:bg-green-100">E-commerce</a></li>
+      <li><a href="#" class="block px-4 py-2 hover:bg-green-100">Enterprise</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('dropdownButton');
+  const menu = document.getElementById('dropdownMenu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+
+  // Optional: close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+</script>
+
+        </h2>
+        <h3 class="mt-2 text-3xl font-semibold text-gray-900">Love About Provis</h3>
+
+        <!-- Speed Section -->
+        <div class="mt-8">
+          <h4 class="text-lg font-semibold text-green-600 mb-3">Speed</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start justify-between border-b border-gray-200 pb-3">
+              <span class="text-gray-600 text-sm">AI-accelerated MVP development for rapid market entry.</span>
+              <span class="text-gray-400 text-lg">→</span>
+            </li>
+            <li class="flex items-start justify-between border-b border-gray-200 pb-3">
+              <span class="text-gray-600 text-sm">Intuitive frameworks designed for fast product-market validation.</span>
+              <span class="text-gray-400 text-lg">→</span>
+            </li>
+            <li class="flex items-start justify-between border-b border-gray-200 pb-3">
+              <span class="text-gray-600 text-sm">Real-time insights enabling swift transition from concept to solution.</span>
+              <span class="text-gray-400 text-lg">→</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Automation Section -->
+        <div class="mt-6">
+          <h4 class="text-lg font-semibold text-gray-400">Automation</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partnerships Section -->
+    <div class="mt-20 text-center">
+      <h3 class="text-2xl font-semibold text-gray-900">Our Strategic <span class="text-green-600">Partnerships</span></h3>
+      <p class="mt-3 text-gray-500 max-w-xl mx-auto">
+        Leading platforms trust us to turn their proven technology into seamless integration and real business growth for clients.
+      </p>
+
+      <div class="flex flex-wrap justify-center items-center gap-10 mt-10">
+        <img src="template/logo.png" alt="Provis Logo" class="h-10">
+        <img src="template/aws.png" alt="AWS Partner Logo" class="h-10">
+      </div>
+
+      <button class="mt-10 px-6 py-3 bg-green-500 text-white text-sm font-semibold rounded-full hover:bg-green-600 transition">
+        → Explore All
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<div class="bg-black text-white p-6 md:p-12 rounded-xl shadow-2xl relative overflow-hidden max-w-6xl mx-auto">
+  <div class="absolute inset-0 z-0 opacity-70">
+    <div class="absolute right-0 top-0 h-full w-2/3 bg-cover bg-center" style="background-image: url('template/robothand.png'); background-blend-mode: overlay; background-color: rgba(0, 0, 0, 0.4);">
+      </div>
+  </div>
+
+  <div class="relative z-10 flex flex-col space-y-8">
+    
+    <div class="absolute top-6 right-6 md:top-12 md:right-12">
+      <span class="text-3xl font-bold flex items-center">
+        <!-- <svg class="w-8 h-8 mr-2 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> -->
+        <img src="template/logo.png" alt="Main Logo" class="w-18 h-12">
+      </span>
+    </div>
+
+    <div class="max-w-xl pt-4">
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4 mt-8">
+        Paying More For AI Than You Should?
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300">
+        Most AI tools don't need expensive model training, they need **direction**. We help you get more from your current AI tools with **smart fine-tuning and prompt strategies** that actually work.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-4 md:gap-8 text-lg font-semibold mt-6">
+      <div class="flex items-center space-x-2">
+        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span>**FREE** AI performance audit</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span>30-minute expert consultation</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span>Custom prompt recommendations</span>
+      </div>
+    </div>
+
+    <a href="#" class="inline-flex items-center justify-center w-auto px-6 py-3 text-lg font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300 mt-4 shadow-xl">
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      Get Your Free Audit
+    </a>
+  </div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+<section class="bg-white w-full py-20 px-5 md:px-20">
+  
+  <div class="swiper caseSwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+
+          <!-- Left content -->
+          <div class="space-y-8 fade-box">
+            <div>
+              <p class="text-gray-500 font-medium">Customer Stories</p>
+              <h2 class="text-3xl font-bold mt-2 leading-snug">
+                Seamless investor onboarding & <br>
+                multi-market listings for Vault.
+              </h2>
+            </div>
+
+            <a href="#" class="flex items-center gap-2 text-green-500 font-semibold hover:text-green-600">
+              <span class="w-3 h-3 bg-green-500 rounded-full"></span> Read Case Study
+            </a>
+
+            <div class="grid grid-cols-3 gap-6">
+              <div class="text-center">
+                <p class="text-green-500 text-2xl font-bold">50K+</p>
+                <p class="text-gray-600 text-sm">Active Users</p>
+              </div>
+              <div class="text-center">
+                <p class="text-green-500 text-2xl font-bold">5K+</p>
+                <p class="text-gray-600 text-sm">MNCs including<br>Banks</p>
+              </div>
+              <div class="text-center">
+                <p class="text-green-500 text-2xl font-bold">10+</p>
+                <p class="text-gray-600 text-sm">Years of Success</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right (Image instead of video for demo) -->
+          <div class="relative">
+            <img src="template/videoimg1.png" class="w-full rounded-xl shadow-lg">
+            <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-500 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" class="w-7 h-7">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+
+          <div class="space-y-8 fade-box">
+            <div>
+              <p class="text-gray-500 font-medium">Client Success</p>
+              <h2 class="text-3xl font-bold mt-2 leading-snug">
+                Scaling B2B wholesale operations <br>
+                for True Wholesale.
+              </h2>
+            </div>
+
+            <a href="#" class="flex items-center gap-2 text-green-500 font-semibold hover:text-green-600">
+              <span class="w-3 h-3 bg-green-500 rounded-full"></span> Read Case Study
+            </a>
+
+            <div class="grid grid-cols-3 gap-6">
+              <div class="text-center">
+                <p class="text-green-500 text-2xl font-bold">120%</p>
+                <p class="text-gray-600 text-sm">Growth</p>
+              </div>
+              <div class="text-center">
+                <p class="text-green-500 text-2xl font-bold">3M+</p>
+                <p class="text-gray-600 text-sm">Transactions</p>
+              </div>
+              <div class="text-center">
+                <p class="text-green-500 text-2xl font-bold">200+</p>
+                <p class="text-gray-600 text-sm">Cities Served</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <img src="template/videoimg2.png" class="w-full rounded-xl shadow-lg">
+            <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-500 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" class="w-7 h-7">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Logos Below -->
+  <div class="flex items-center flex-wrap justify-center gap-10 mt-16">
+    <img src="template/true-wholesale-logo (1).png" class="h-10">
+    <img src="template/AmericanSchool.png" class="h-10">
+    <img src="template/vault.png" class="h-8">
+    <img src="template/DPIIT.png" class="h-8">
+  </div>
+
+  <div class="border-b mt-16 border-gray-300"></div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<script>
+var swiper = new Swiper(".caseSwiper", {
+  effect: "fade",
+  fadeEffect: { crossFade: true },
+  loop: true,
+  autoplay: { delay: 4500, disableOnInteraction: false },
+  speed: 800
+});
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+<section class="bg-[#0b0f16] text-white py-16 px-4">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold">
+      A Decade of Driving Digital Excellence <br> through Trusted Partnerships
+    </h2>
+  </div>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide -->
+      <div class="swiper-slide">
+        <div class="relative rounded-xl overflow-hidden shadow-lg">
+
+          <!-- Image -->
+          <img src="template/img1.png" class="w-full h-80 object-cover" />
+
+          <!-- Logo Top Right -->
+          <div class="absolute top-3 right-3 bg-black/60 px-3 py-1 rounded-lg">
+            <img src="template/Shugulika.png" class="h-5" alt="">
+          </div>
+
+          <!-- Gradient Bottom -->
+          <div class="absolute bottom-0 w-full bg-linear-to-t from-green-500/90 via-green-500/80 to-transparent p-5 text-white">
+
+            <p class="text-sm font-semibold">50K+ Users Onboarded</p>
+
+            <p class="text-xs opacity-90 leading-relaxed mt-1">
+              "Working with Provis Technologies is an absolute pleasure! Impressed by their service and visionary strategy."
+            </p>
+
+            <div class="mt-3">
+              <p class="font-bold text-sm">James Hammerton</p>
+              <p class="text-[11px] opacity-80">Director</p>
+            </div>
+
+            <button class="absolute right-4 bottom-4 w-9 h-9 bg-white/20 border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-green-600 transition">
+              ➜
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate cards below for demo -->
+      <div class="swiper-slide">
+        <div class="relative rounded-xl overflow-hidden shadow-lg">
+          <img src="template/img2.png" class="w-full h-80 object-cover" />
+          <div class="absolute top-3 right-3 bg-black/60 px-3 py-1 rounded-lg">
+            <img src="template/Shugulika.png" class="h-5" alt="">
+          </div>
+          <div class="absolute bottom-0 w-full bg-linear-to-t from-green-500/90 via-green-500/80 to-transparent p-5 text-white">
+            <p class="text-sm font-semibold">50K+ Users Onboarded</p>
+            <p class="text-xs opacity-90 leading-relaxed mt-1">"Working with Proyls Technologies is an absolute pleasure!"</p>
+            <div class="mt-3">
+              <p class="font-bold text-sm">Sarah Williams</p>
+              <p class="text-[11px] opacity-80">Founder & CEO</p>
+            </div>
+            <button class="absolute right-4 bottom-4 w-9 h-9 bg-white/20 border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-green-600 transition">
+              ➜
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="relative rounded-xl overflow-hidden shadow-lg">
+          <img src="template/img3.png" class="w-full h-80 object-cover" />
+          <div class="absolute top-3 right-3 bg-black/60 px-3 py-1 rounded-lg">
+            <img src="template/Shugulika.png" class="h-5" alt="">
+          </div>
+          <div class="absolute bottom-0 w-full bg-linear-to-t from-green-500/90 via-green-500/80 to-transparent p-5 text-white">
+            <p class="text-sm font-semibold">Happy Clients</p>
+            <p class="text-xs opacity-90 leading-relaxed mt-1">"Amazing experience building our web solution!"</p>
+            <div class="mt-3">
+              <p class="font-bold text-sm">Moshe Matan</p>
+              <p class="text-[11px] opacity-80">Founder</p>
+            </div>
+            <button class="absolute right-4 bottom-4 w-9 h-9 bg-white/20 border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-green-600 transition">
+              ➜
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: { delay: 3000 },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+});
+</script>
+
+
+
+<section class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Heading -->
+    <h2 class="text-3xl font-bold text-center mb-10">
+      What’s New at <span class="text-green-500">Provis</span>
+    </h2>
+
+    <!-- Card Container -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <div class="relative">
+          <img src="template/award.png" alt="GoodFirms" class="w-full h-56 object-contain bg-gray-50 p-6" />
+          <a href="#" class="absolute bottom-3 right-3 bg-green-500 hover:bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        <div class="p-5">
+          <h3 class="text-gray-800 font-semibold text-lg">
+            GoodFirms Honors Provis’ Product Excellence
+          </h3>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <div class="relative">
+          <img src="template/man.jpg" alt="SaaS Services" class="w-full h-56 object-cover" />
+          <a href="#" class="absolute bottom-3 right-3 bg-green-500 hover:bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        <div class="p-5">
+          <h3 class="text-gray-800 font-semibold text-lg">
+            Why Businesses Choose SaaS Services
+          </h3>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <div class="relative">
+          <img src="template/shopping.jpg" alt="Engaged Users" class="w-full h-56 object-cover" />
+          <a href="#" class="absolute bottom-3 right-3 bg-green-500 hover:bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+        <div class="p-5">
+          <h3 class="text-gray-800 font-semibold text-lg">
+            How to Get More Engaged Users on Website
+          </h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="flex flex-col lg:flex-row bg-gray-200 justify-center items-center p-4 lg:p-10">
+  <div class="w-full max-w-6xl flex flex-col lg:flex-row bg-white shadow-lg rounded-xl overflow-hidden">
+    
+    <!-- Left Section -->
+    <div class="lg:w-1/2 bg-black text-white p-10 flex flex-col justify-center rounded-l-xl">
+      <div class="mb-10">
+        <img src="your-image.png" alt="background design" class="w-full opacity-80 rounded-xl" />
+      </div>
+
+      <div class="space-y-6 mt-10">
+        <div class="flex items-baseline space-x-3">
+          <h2 class="text-5xl font-bold">200+</h2>
+          <p class="text-sm text-gray-300">Projects Delivered that Exceeded Expectations</p>
+        </div>
+
+        <hr class="border-gray-700" />
+
+        <div class="flex items-baseline space-x-3">
+          <h2 class="text-5xl font-bold">12+</h2>
+          <p class="text-sm text-gray-300">Years of Experience across various Industries</p>
+        </div>
+
+        <hr class="border-gray-700" />
+
+        <div class="flex items-baseline space-x-3">
+          <h2 class="text-5xl font-bold">25+</h2>
+          <p class="text-sm text-gray-300">Collective minds constantly aiming for Excellence</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="lg:w-1/2 bg-white p-10 flex flex-col justify-center rounded-r-xl">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">Start Your Growth Journey</h2>
+      
+      <form class="space-y-5">
+        <div>
+          <label class="block text-gray-700 text-sm mb-2">Full Name</label>
+          <input type="text" placeholder="Enter Full Name" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 text-sm mb-2">Work Email</label>
+          <input type="email" placeholder="Enter Work Email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 text-sm mb-2">Phone Number</label>
+          <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+            <span class="flex items-center px-3 bg-gray-100 text-gray-600">
+              <img src="template/india.png" alt="India Flag" class="w-5 h-4 mr-2" />
+              +91
+            </span>
+            <input type="tel" placeholder="Enter Phone Number" class="w-full px-4 py-2 focus:outline-none" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-700 text-sm mb-2">Message</label>
+          <textarea placeholder="Brief about your Project" maxlength="1000" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+          <p class="text-right text-xs text-gray-400">0/1000</p>
+        </div>
+
+        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg flex justify-center items-center font-medium shadow-md transition">
+          <span>→ Get Started</span>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+
+<footer class="bg-black text-gray-300 py-10 px-6 md:px-16">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- ⭐ Ratings Section -->
+    <div class="flex flex-wrap justify-center items-center gap-8 border-b border-gray-700 pb-6 mb-8">
+      <div class="flex items-center space-x-2">
+        <img src="template/Up.png" alt="GoodFirms" class="h-6">
+        <span class="text-yellow-400 text-sm">
+          ★★★★★
+        </span>
+        <span class="text-white text-sm">5/5</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <img src="template/Co.png" alt="Clutch" class="h-6">
+        <span class="text-yellow-400 text-sm">
+          ★★★★★
+        </span>
+        <span class="text-white text-sm">5/5</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <img src="template/google.jpg" alt="Google" class="h-6">
+        <span class="text-yellow-400 text-sm">
+          ★★★★☆
+        </span>
+        <span class="text-white text-sm">4.6/5</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <img src="template/glassdoor.png" alt="Trustpilot" class="h-6">
+        <span class="text-yellow-400 text-sm">
+          ★★★★☆
+        </span>
+        <span class="text-white text-sm">4.4/5</span>
+      </div>
+    </div>
+
+    <!-- Top Section -->
+    <div class="grid md:grid-cols-4 gap-10 border-b border-gray-700 pb-8">
+      
+      <!-- Logo and Certifications -->
+      <div>
+        <div class="flex items-center space-x-3 mb-3">
+          <img src="template/logo.png" alt="Provis Logo" class="w-20 h-10/12">
+        </div>
+        <p class="text-sm leading-relaxed mb-4">
+          <span class="text-green-400 font-semibold">Partners In Growth:</span>
+          Powering Innovation Through Every Product
+        </p>
+        <div class="flex flex-wrap items-center gap-4">
+          <img src="template/Nasscom.png" alt="Nasscom" class="h-10">
+          <img src="template/GeM.png" alt="GeM" class="h-10">
+          <img src="template/DPIIT.png" alt="DPIIT" class="h-10">
+          <img src="template/Clutch.png" alt="Clutch" class="h-10">
+        </div>
+      </div>
+
+      <!-- AI Development -->
+      <div>
+        <h3 class="text-white font-semibold mb-3">AI Development</h3>
+        <ul class="space-y-1 text-sm">
+          <li>AI - powered automation</li>
+          <li>AI for customer service</li>
+          <li>RAG Based AI Systems</li>
+          <li>AI chatbot development</li>
+          <li>Self/Cloud-hosted on-prem LLMs</li>
+          <li>Predictive Forecasting & sentiment analysis</li>
+        </ul>
+      </div>
+
+      <!-- SaaS -->
+      <div>
+        <h3 class="text-white font-semibold mb-3">SaaS</h3>
+        <ul class="space-y-1 text-sm">
+          <li>Bespoke SaaS development</li>
+          <li>AI & Automation in Vertical SaaS</li>
+          <li>Rapid MVP Development</li>
+          <li>Full stack development</li>
+          <li>Seamless Cloud Migration & Upgrades</li>
+          <li>CTO as a Service</li>
+        </ul>
+      </div>
+
+      <!-- eCommerce -->
+      <div>
+        <h3 class="text-white font-semibold mb-3">eCommerce</h3>
+        <ul class="space-y-1 text-sm">
+          <li>Ecommerce store Build & Launch</li>
+          <li>Bespoke Multi-Vendor Marketplace Development</li>
+          <li>AI Integrations for eCommerce and CRM</li>
+          <li>eCommerce Workflow Automation</li>
+          <li>Core Web Vitals & Speed Optimization</li>
+          <li>24/7 Monitoring & Support</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-8 mt-8">
+      <!-- Contact -->
+      <div>
+        <h4 class="text-white font-semibold mb-3">Contact</h4>
+        <ul class="space-y-1 text-sm">
+          <li class="flex items-center gap-2">
+            <img src="template/india.png" alt="India Flag" class="h-4 w-6"> +91 887 558 2124
+          </li>
+          <li><a href="mailto:sales@provistechnologies.com" class="text-green-400">sales@provistechnologies.com</a></li>
+          <li class="flex items-center gap-2">
+            <img src="template/uk.png" alt="UK Flag" class="h-4 w-6"> +44 78 6212 6522
+          </li>
+          <li><a href="mailto:sales@provis.global" class="text-green-400">sales@provis.global</a></li>
+          <li><a href="mailto:sales@provisglobal.co.uk" class="text-green-400">sales@provisglobal.co.uk</a></li>
+        </ul>
+      </div>
+
+      <!-- Offices -->
+      <div>
+        <h4 class="text-white font-semibold mb-3">Our Offices</h4>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-start gap-2">
+            <img src="template/india.png" alt="India Flag" class="h-4 w-6 mt-0.5">
+            <span>503, Signature Tower, Jaipur, Rajasthan, 302015</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <img src="template/india.png" alt="India Flag" class="h-4 w-6 mt-0.5">
+            <span>709, 7th Floor, Kailash Tower, Jaipur, Rajasthan, 302015</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-3">Insights</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-green-400">Blogs</a></li>
+          <li><a href="#" class="hover:text-green-400">Case Studies</a></li>
+          <li><a href="#" class="hover:text-green-400">Resources</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-3">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-green-400">About Us</a></li>
+          <li><a href="#" class="hover:text-green-400">Careers</a></li>
+          <li><a href="#" class="hover:text-green-400">Our Work</a></li>
+          <li><a href="#" class="hover:text-green-400">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Social and Bottom Text -->
+    <div class="flex flex-col md:flex-row justify-between items-center mt-10 border-t border-gray-700 pt-6 text-sm">
+      <div class="flex space-x-4 mb-4 md:mb-0">
+        <a href="#"><i class="fab fa-facebook-f text-white"></i></a>
+        <a href="#"><i class="fab fa-x-twitter text-white"></i></a>
+        <a href="#"><i class="fab fa-instagram text-white"></i></a>
+        <a href="#"><i class="fab fa-youtube text-white"></i></a>
+        <a href="#"><i class="fab fa-behance text-white"></i></a>
+        <a href="#"><i class="fab fa-dribbble text-white"></i></a>
+      </div>
+      <div class="text-gray-500 text-center md:text-left">
+        © 2025 Provis Technologies Private Limited
+      </div>
+      <div class="flex space-x-4 text-gray-500 text-xs mt-3 md:mt-0">
+        <a href="#">All Rights Reserved</a>
+        <a href="#">Cookie Settings</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+  </body>
+</html>
